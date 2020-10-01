@@ -1,4 +1,4 @@
-console.log('calculator');
+alert("this is the best calculater in the world");
 const $input = document.querySelector("input");
 
 document.querySelectorAll(".num__key").forEach(
@@ -18,9 +18,7 @@ const opCallback = opName => () => {
     else {
       if (buffer && buffer.length) {
         buffer.push({ value: currentVal });
-
         const result = evaluate(buffer);
-
         buffer.push({ value: result });
         buffer.push({ value: opName });
 
@@ -62,7 +60,6 @@ for (const opName of [ "add", "subtract", "multiply", "divide", "percent" ]) {
   document.querySelector(`.op__key[op=${opName}]`).onclick =
     opCallback(opName);
 }
-
 document.querySelector(".eq__key").onclick =
   () => {
     if (buffer && buffer.length) {
@@ -70,12 +67,10 @@ document.querySelector(".eq__key").onclick =
       $input.value = evaluate(buffer);
     }
   }
-
 document.querySelector(".op__key[op=clear]").onclick =
   () => {
     $input.value = 0;
     buffer.length = 0;
   }
-
 document.querySelector(".op__key[op=negate]").onclick =
   () => $input.value = -parseFloat($input.value);
